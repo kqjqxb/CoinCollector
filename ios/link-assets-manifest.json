@@ -1,0 +1,69 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/PlusJakartaSans-Bold.ttf",
+      "sha1": "65d4478e92a9ff9298b748f8088e05972cd18697"
+    },
+    {
+      "path": "src/assets/fonts/PlusJakartaSans-ExtraBold.ttf",
+      "sha1": "91df94a9ed290d7aebbc5f5118d91fda38f9c109"
+    },
+    {
+      "path": "src/assets/fonts/PlusJakartaSans-Regular.ttf",
+      "sha1": "25ba6345e577fa516ad5f89405933171a8d81eb0"
+    },
+    {
+      "path": "src/assets/fonts/PontanoSans-Bold.ttf",
+      "sha1": "f0cce787a2b95f28fd2d3c271dc13ad85a86b068"
+    },
+    {
+      "path": "src/assets/fonts/PontanoSans-Light.ttf",
+      "sha1": "95b6cbdd5b7b460c8aa846e196aaf9eda4e664ab"
+    },
+    {
+      "path": "src/assets/fonts/PontanoSans-Medium.ttf",
+      "sha1": "05d217e85af4d1316aa6ecf9cdcf1ba16d26cc49"
+    },
+    {
+      "path": "src/assets/fonts/PontanoSans-Regular.ttf",
+      "sha1": "e9eb21866a579dd423c3aaefee1b690d0877a9ee"
+    },
+    {
+      "path": "src/assets/fonts/PontanoSans-SemiBold.ttf",
+      "sha1": "bea4f609d4ea10f6f05cb60928f98a871c3e50e3"
+    },
+    {
+      "path": "src/assets/fonts/SF-Pro-Display-Black.otf",
+      "sha1": "63bff54eeb90e47408e27d5bb89199c7d187f43d"
+    },
+    {
+      "path": "src/assets/fonts/SF-Pro-Display-Bold.otf",
+      "sha1": "100e7b7fd24facbca4db38e6d4d7e01c73b82818"
+    },
+    {
+      "path": "src/assets/fonts/SF-Pro-Display-Medium.otf",
+      "sha1": "a5f5e08dd38cac2f857fb7510f7e92a2399b6f5c"
+    },
+    {
+      "path": "src/assets/fonts/SF-Pro-Display-Regular.otf",
+      "sha1": "e19df199e78d296e5b6491d4832a76756532ed43"
+    },
+    {
+      "path": "src/assets/fonts/SFProText-Bold.ttf",
+      "sha1": "632e6cea171b276e5dd1f13b152c702fbf562cee"
+    },
+    {
+      "path": "src/assets/fonts/SFProText-Heavy.ttf",
+      "sha1": "bfc75c545dbe2a8c7c3d6d6223e42aaa5ccb9432"
+    },
+    {
+      "path": "src/assets/fonts/SFProText-Medium.ttf",
+      "sha1": "3b8df618cd23e83843b16a8a32de1ddc9de44df4"
+    },
+    {
+      "path": "src/assets/fonts/SFProText-Regular.ttf",
+      "sha1": "b4893462f2289df6978f9462a63db9e64bcc9342"
+    }
+  ]
+}

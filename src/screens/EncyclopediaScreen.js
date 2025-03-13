@@ -56,7 +56,10 @@ const EncyclopediaScreen = ({ setSelectedCoinCollectorScreen }) => {
           onPress={() => {
             if (isDefectiveCoinsVisible) {
               setIsDefectiveCoinsVisible(false);
-            } else setSelectedCoinCollectorScreen('Home');
+            } else {
+              // setSelectedCoinCollectorScreen('Home');
+              goCoinsHome();
+            }
           }}
           style={{
             flexDirection: 'row',

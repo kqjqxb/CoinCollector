@@ -133,7 +133,7 @@ const SettingsScreen = ({ setSelectedCoinCollectorScreen, }) => {
         <TouchableOpacity
           key={button.id}
           onPress={() => {
-            Linking.openURL(button.coinButtonLink);
+            // Linking.openURL(button.coinButtonLink);
           }}
           style={{
             width: dimensions.width * 0.9,

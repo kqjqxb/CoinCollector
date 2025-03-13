@@ -567,7 +567,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                     borderRadius: dimensions.width * 0.025,
                     alignSelf: 'center',
                   }}
-                  resizeMode='stretch'
+                  resizeMode='contain'
                 />
                 <Image
                   source={require('../assets/images/deleteImage.png')}
@@ -889,7 +889,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
               marginTop: dimensions.height * 0.025,
               alignSelf: 'center',
             }}
-            resizeMode='stretch'
+            resizeMode='contain'
           />
 
           <View style={{

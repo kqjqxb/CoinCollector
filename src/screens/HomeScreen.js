@@ -426,10 +426,12 @@ const HomeScreen = () => {
             }}>
               <TouchableOpacity
                 onPress={() => {
-                  setModalVisible(false);
-                  setCollectionImage('');
-                  setCollectionTitle('');
-                  setCollectionDescription('');
+                  // setModalVisible(false);
+                  // setCollectionImage('');
+                  // setCollectionTitle('');
+                  // setCollectionDescription('');
+
+                  closeAddCoin();
                 }}
                 style={{
                   flexDirection: 'row',

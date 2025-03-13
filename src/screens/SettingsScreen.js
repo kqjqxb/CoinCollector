@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import {
   View,
@@ -7,231 +6,161 @@ import {
   Dimensions,
   Image,
   SafeAreaView,
-  Switch,
-  Modal,
+  Linking,
 } from 'react-native';
-import RNRestart from 'react-native-restart';
+import { ChevronRightIcon } from 'react-native-heroicons/solid';
 
-const fontPlusJakartaSansRegular = 'PlusJakartaSans-Regular';
+const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
+const fontSFProTextRegular = 'SFProText-Regular';
+const fontSFProTextHeavy = 'SFProText-Heavy';
 
-const SettingsScreen = ({ setSelectedCoinCollectorScreen, isVibrationEnabled, setVibrationEnabled }) => {
+const coinCollecorAppStoreLink = 'https://www.google.com/';
+
+const coinCollectorLinkButtons = [
+  {
+    id: 1,
+    coinButtonTitle: 'Privacy Policy',
+    coinButtonLink: 'https://www.google.com/',
+  },
+  {
+    id: 2,
+    coinButtonTitle: 'Terms of Use',
+    coinButtonLink: 'https://www.google.com/',
+  }
+]
+
+const SettingsScreen = ({ setSelectedCoinCollectorScreen, }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const toggleNotificationSwitch = () => {
-    const newValue = !isVibrationEnabled;
-    setVibrationEnabled(newValue);
-    saveSettings('isVibrationEnabled', newValue);
-  };
-  const saveSettings = async (key, value) => {
-    try {
-      await AsyncStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.error("Error saving settings:", error);
-    }
-  };
-
-  const clearAsyncStorage = async () => {
-    try {
-      await AsyncStorage.clear();
-      RNRestart.Restart();
-      console.log('AsyncStorage очищено');
-    } catch (error) {
-      console.error('Помилка при очищенні AsyncStorage', error);
-    }
-  };
 
   return (
     <SafeAreaView style={{
-      display: 'flex',
       alignSelf: 'center',
-      width: '100%',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flex: 1
+      width: dimensions.width,
+      height: dimensions.height,
     }}>
+      <Text
+        style={{
+          fontFamily: fontSFProDisplayRegular,
+          color: 'white',
+          fontSize: dimensions.width * 0.088,
+          marginBottom: dimensions.height * 0.023,
+          textAlign: 'left',
+          alignSelf: 'flex-start',
+          fontWeight: 700,
+          paddingHorizontal: dimensions.width * 0.05,
+        }}>
+        Settings
+      </Text>
+
       <View style={{
         width: dimensions.width * 0.9,
+        backgroundColor: '#2CA1F6',
+        borderRadius: dimensions.width * 0.03,
+        paddingVertical: dimensions.height * 0.01,
+        paddingHorizontal: dimensions.width * 0.025,
         alignSelf: 'center',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: dimensions.width * 0.025,
-        borderColor: 'white',
-        borderWidth: dimensions.width * 0.007,
-        paddingVertical: dimensions.height * 0.03,
+        marginTop: dimensions.height * 0.01,
       }}>
-        <View style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: dimensions.width * 0.77,
-          marginBottom: dimensions.height * 0.19,
-        }}>
-          <View style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-          }}>
-            <Image 
-              source={require('../assets/icons/vibrationIcon.png')}
-              style={{
-                width: dimensions.width * 0.1,
-                height: dimensions.width * 0.1,
-                marginRight: dimensions.width * 0.02,
-              }}
-              resizeMode='contain'
-            />
-
-            <Text style={{
-              color: 'white',
-              fontSize: dimensions.width * 0.07,
-              fontFamily: fontPlusJakartaSansRegular,
-              fontWeight: 600,
-            }}>
-              Vibration
-            </Text>
-          </View>
-          <Switch
-            trackColor={{ false: '#948ea0', true: '#FFFFFF' }}
-            thumbColor={'#2BE281'}
-            ios_backgroundColor="#3E3E3E"
-            onValueChange={toggleNotificationSwitch}
-            value={isVibrationEnabled}
-          />
-        </View>
-        <TouchableOpacity 
-          onPress={() => {
-            setModalVisible(true);
+        <Image
+          source={require('../assets/images/settingsCoinsImage.png')}
+          style={{
+            alignSelf: 'center',
+            width: dimensions.width * 0.68,
+            height: dimensions.height * 0.19,
           }}
-        style={{
-          width: dimensions.width * 0.8,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'white',
-          borderRadius: dimensions.width * 0.019,
-          height: dimensions.height * 0.07,
-        }}>
+          resizeMode='contain'
+        />
+
+        <Text
+          style={{
+            fontFamily: fontSFProTextHeavy,
+            color: 'white',
+            fontSize: dimensions.width * 0.061,
+            textAlign: 'center',
+            alignSelf: 'center',
+            paddingHorizontal: dimensions.width * 0.05,
+          }}>
+          Rate us!
+        </Text>
+
+        <Text
+          style={{
+            fontFamily: fontSFProTextRegular,
+            marginTop: dimensions.height * 0.01,
+            color: 'white',
+            fontSize: dimensions.width * 0.037,
+            textAlign: 'center',
+            alignSelf: 'center',
+            fontWeight: 500,
+            paddingHorizontal: dimensions.width * 0.05,
+          }}>
+          Click the button below to rate our application
+        </Text>
+
+        <TouchableOpacity
+          onPress={() => {
+            Linking.openURL(coinCollecorAppStoreLink);
+          }}
+          style={{
+            width: dimensions.width * 0.8,
+            marginBottom: dimensions.height * 0.016,
+            marginTop: dimensions.height * 0.03,
+            alignSelf: 'center',
+            backgroundColor: '#FFEA1F',
+            borderRadius: dimensions.width * 0.019,
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: dimensions.height * 0.05,
+            height: dimensions.height * 0.062,
+          }}>
           <Text
             style={{
-              fontFamily: fontPlusJakartaSansRegular,
+              fontFamily: fontSFProDisplayRegular,
               color: 'black',
-              fontSize: dimensions.width * 0.05,
+              fontSize: dimensions.width * 0.046,
               textAlign: 'center',
+              alignSelf: 'center',
               fontWeight: 600,
             }}>
-            Reset progress
+            Rate
           </Text>
         </TouchableOpacity>
       </View>
 
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#1E1E1EE0',
-        }}>
-          <View style={{
-            paddingHorizontal: 0,
-            backgroundColor: 'white',
-            borderRadius: dimensions.width * 0.05,
-            paddingTop: dimensions.width * 0.07,
+      <View style={{marginTop: dimensions.height * 0.01}}></View>
+
+      {coinCollectorLinkButtons.map((button) => (
+        <TouchableOpacity
+          onPress={() => {
+            Linking.openURL(button.coinButtonLink);
+          }}
+          style={{
+            width: dimensions.width * 0.9,
+            height: dimensions.height * 0.07,
+            backgroundColor: '#2CA1F6',
+            borderRadius: dimensions.width * 0.03,
+            paddingHorizontal: dimensions.width * 0.04,
+            alignSelf: 'center',
+            marginTop: dimensions.height * 0.007,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            width: dimensions.width * 0.8,
           }}>
-            <Text style={{
-              fontSize: dimensions.width * 0.044,
-              marginBottom: dimensions.height * 0.019,
+          <Text
+            style={{
+              fontFamily: fontSFProDisplayRegular,
+              color: 'white',
+              fontSize: dimensions.width * 0.046,
               textAlign: 'center',
-              fontFamily: fontPlusJakartaSansRegular,
-              paddingHorizontal: dimensions.width * 0.073,
-              fontWeight: 500,
               alignSelf: 'center',
+              fontWeight: 600,
             }}>
-              Reset progress?
-            </Text>
-            <Text style={{
-              paddingHorizontal: dimensions.width * 0.073,
-              textAlign: 'center',
-              fontFamily: fontPlusJakartaSansRegular,
-              fontSize: dimensions.width * 0.034,
-              marginBottom: dimensions.height * 0.019,
-            }}>
-              Are you sure you want to reset your progress?
-            </Text>
-            <View style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              width: dimensions.width * 0.8,
-              borderTopColor: '#050505',
-              borderTopWidth: dimensions.width * 0.0019,
-              paddingHorizontal: dimensions.width * 0.07,
-            }}>
-              <TouchableOpacity
-                style={{
-                  paddingVertical: dimensions.height * 0.021,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  alignSelf: 'center',
-                  width: '44%',
-                }}
-                onPress={() => {
-                  // setModalVisible(false);
-                  cancel();
-                }}
-              >
-                <Text style={{
-                  color: '#090814',
-                  fontSize: dimensions.width * 0.043,
-                  textAlign: 'center',
-                  alignSelf: 'center',
-                  fontWeight: 400,
-                  fontFamily: fontPlusJakartaSansRegular,
-                }}>
-                  Cancel
-                </Text>
-              </TouchableOpacity>
-              <View style={{
-                height: '100%',
-                borderLeftWidth: dimensions.width * 0.0019,
-                paddingVertical: dimensions.height * 0.021,
-                borderLeftColor: '#050505',
-              }} />
-              <TouchableOpacity
-                style={{
-                  paddingVertical: dimensions.height * 0.021,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  width: '44%',
-                }}
-                onPress={() => {
-                  // setModalVisible(false);
-                  // clearAsyncStorage();
-                  resetResetResetReset();
-                }}
-              >
-                <Text style={{
-                  color: '#FF2519',
-                  textAlign: 'center',
-                  fontFamily: fontPlusJakartaSansRegular,
-                  fontSize: dimensions.width * 0.044,
-                  alignSelf: 'center',
-                  fontWeight: 600,
-                }}>
-                  Reset
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
+            {button.coinButtonTitle}
+          </Text>
+
+          <ChevronRightIcon size={dimensions.height * 0.03} color='white'/>
+        </TouchableOpacity>
+      ))}
     </SafeAreaView>
   );
 };

@@ -134,7 +134,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
     );
     setCoinCollection(updatedCollections);
     setSelectedCollection(updatedCollection);
-    setCoinDetailsModalVisible(false); // Залишаємо видимим, щоб користувач бачив зміни
+    setCoinDetailsModalVisible(false); 
     AsyncStorage.setItem('coinCollection', JSON.stringify(updatedCollections))
       .then(() => {
         console.log('coinCollection updated in AsyncStorage');
@@ -887,11 +887,11 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
               paddingHorizontal: dimensions.width * 0.05,
               marginTop: dimensions.height * 0.01,
             }}>
-            {selectedCoin.title}
+            {selectedCoin?.title}
           </Text>
 
           <Image
-            source={{ uri: selectedCoin.image }}
+            source={{ uri: selectedCoin?.image }}
             style={{
               width: dimensions.width * 0.9,
               height: dimensions.height * 0.23,
@@ -934,7 +934,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                 fontWeight: 600,
                 marginTop: dimensions.height * 0.01,
               }}>
-              {selectedCoin.yearOfIssue}
+              {selectedCoin?.yearOfIssue}
             </Text>
 
             <Text
@@ -960,7 +960,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                 fontWeight: 600,
                 marginTop: dimensions.height * 0.01,
               }}>
-              {selectedCoin.denomination}
+              {selectedCoin?.denomination}
             </Text>
 
             <Text
@@ -986,7 +986,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                 fontWeight: 600,
                 marginTop: dimensions.height * 0.01,
               }}>
-              {selectedCoin.country}
+              {selectedCoin?.country}
             </Text>
 
             <Text
@@ -1012,7 +1012,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                 fontWeight: 600,
                 marginTop: dimensions.height * 0.01,
               }}>
-              {selectedCoin.material}
+              {selectedCoin?.material}
             </Text>
 
             <Text
@@ -1038,7 +1038,7 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                 fontWeight: 600,
                 marginTop: dimensions.height * 0.01,
               }}>
-              {selectedCoin.originNotes}
+              {selectedCoin?.originNotes}
             </Text>
           </View>
 

@@ -17,7 +17,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SettingsScreen from './SettingsScreen';
 import { ChevronLeftIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import CardsScreen from './CardsScreen';
-import DreamBoardScreen from './DreamBoardScreen';
 import * as ImagePicker from 'react-native-image-picker';
 import CollectionDetailsScreen from './CollectionDetailsScreen';
 import EncyclopediaScreen from './EncyclopediaScreen';

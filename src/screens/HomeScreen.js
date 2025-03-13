@@ -20,6 +20,7 @@ import CardsScreen from './CardsScreen';
 import DreamBoardScreen from './DreamBoardScreen';
 import * as ImagePicker from 'react-native-image-picker';
 import CollectionDetailsScreen from './CollectionDetailsScreen';
+import EncyclopediaScreen from './EncyclopediaScreen';
 
 const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
 const fontSFProTextRegular = 'SFProText-Regular';
@@ -347,8 +348,8 @@ const HomeScreen = () => {
         <SettingsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
       ) : selectedCoinCollectorScreen === 'CollectionDetails' ? (
         <CollectionDetailsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCollection={selectedCollection} setSelectedCollection={setSelectedCollection} coinCollection={coinCollection} setCoinCollection={setCoinCollection}/>
-      ) : selectedCoinCollectorScreen === 'DreamBoard' ? (
-        <DreamBoardScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
+      ) : selectedCoinCollectorScreen === 'Encyclopedia' ? (
+        <EncyclopediaScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
       ) : selectedCoinCollectorScreen === 'Cards' ? (
         <CardsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
       ) : null}

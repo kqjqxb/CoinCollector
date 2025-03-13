@@ -20,12 +20,12 @@ const coinCollectorLinkButtons = [
   {
     id: 1,
     coinButtonTitle: 'Privacy Policy',
-    coinButtonLink: 'https://www.google.com/',
+    coinButtonLink: 'https://www.termsfeed.com/live/72d42e7b-a1db-4a23-b004-8e5e9129271c',
   },
   {
     id: 2,
     coinButtonTitle: 'Terms of Use',
-    coinButtonLink: 'https://www.google.com/',
+    coinButtonLink: 'https://www.termsfeed.com/live/5ce06937-5613-4c66-9c15-e8f338c4f337',
   }
 ]
 

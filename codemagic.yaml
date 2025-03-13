@@ -10,9 +10,9 @@ workflows:
         XCODE_WORKSPACE: "CoinCollector.xcworkspace" # <----
         XCODE_SCHEME: "CoinCollector" # <----
         BUNDLE_ID: "com.coin.collector.app" # <----
-        APP_STORE_APP_ID: 6743155399 # <----
-        APP_STORE_CONNECT_KEY_ID: "P936GWFD6W" # <----
-        APP_STORE_CONNECT_ISSUER_ID: "77e35854-47e5-4cf2-a8d2-92c5be96a9dd" # <----
+        APP_STORE_APP_ID: 6743238725 # <----
+        APP_STORE_CONNECT_KEY_ID: "M62P8R2SN2" # <----
+        APP_STORE_CONNECT_ISSUER_ID: "5133a975-6e3c-4245-b3a3-f76945278e34" # <----
         node: latest
         xcode: latest
         cocoapods: default
@@ -52,7 +52,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - Ekalelane@icloud.com       # <----
+          - zenonkubat1@gmail.com       # <----
         notify:
           success: true
           failure: false

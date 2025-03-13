@@ -16,13 +16,12 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SettingsScreen from './SettingsScreen';
 import { ChevronLeftIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
-import CardsScreen from './CardsScreen';
 import * as ImagePicker from 'react-native-image-picker';
 import CollectionDetailsScreen from './CollectionDetailsScreen';
 import EncyclopediaScreen from './EncyclopediaScreen';
+import CleanCoinGameScreen from './CleanCoinGameScreen';
 
 const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
-const fontSFProTextRegular = 'SFProText-Regular';
 
 const bottomBtns = [
   {
@@ -41,7 +40,7 @@ const bottomBtns = [
   },
   {
     id: 3,
-    screen: 'Game',
+    screen: 'CleanCoinGame',
     coinCollectorScreenTitle: 'Game',
     coinCollectorWhiteIcon: require('../assets/icons/whiteCoinCollBtnIcons/gameIcon.png'),
     coinCollectorBlueIcon: require('../assets/icons/blueCoinCollBtnIcons/gameIcon.png'),
@@ -63,9 +62,9 @@ const HomeScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [collectionImage, setCollectionImage] = useState('');
   const [selectedCollection, setSelectedCollection] = useState(null);
-  const [selectedCoin, setSelectedCoin] = useState(null);
   const [collectionTitle, setCollectionTitle] = useState('');
   const [collectionDescription, setCollectionDescription] = useState('');
+  const [isCoinGameStarted, setIsCoinGameStarted] = useState(false);
 
   const loadCoinCollection = async () => {
     try {
@@ -109,7 +108,6 @@ const HomeScreen = () => {
     }
   };
 
-
   const handleCoinCollectionImagePicker = () => {
     ImagePicker.launchImageLibrary({ mediaType: 'photo' }, (response) => {
       if (response.didCancel) {
@@ -124,7 +122,7 @@ const HomeScreen = () => {
 
   const handleDeleteCollectionImage = () => {
     Alert.alert(
-      "Delete image",
+      "Delete collection image",
       "Are you sure you want to delete image of collection?",
       [
         {
@@ -241,7 +239,6 @@ const HomeScreen = () => {
                   Create a collection
                 </Text>
               </TouchableOpacity>
-
             </View>
           ) : (
             <View style={{
@@ -341,7 +338,6 @@ const HomeScreen = () => {
             </View>
           )}
 
-
         </SafeAreaView>
       ) : selectedCoinCollectorScreen === 'Settings' ? (
         <SettingsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
@@ -349,12 +345,11 @@ const HomeScreen = () => {
         <CollectionDetailsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCollection={selectedCollection} setSelectedCollection={setSelectedCollection} coinCollection={coinCollection} setCoinCollection={setCoinCollection}/>
       ) : selectedCoinCollectorScreen === 'Encyclopedia' ? (
         <EncyclopediaScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
-      ) : selectedCoinCollectorScreen === 'Cards' ? (
-        <CardsScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} selectedCoinCollectorScreen={selectedCoinCollectorScreen} />
+      ) : selectedCoinCollectorScreen === 'CleanCoinGame' ? (
+        <CleanCoinGameScreen setSelectedCoinCollectorScreen={setSelectedCoinCollectorScreen} isCoinGameStarted={isCoinGameStarted} setIsCoinGameStarted={setIsCoinGameStarted}/>
       ) : null}
 
-
-      {selectedCoinCollectorScreen !== 'CollectionDetails' && (
+      {selectedCoinCollectorScreen !== 'CollectionDetails' && !(selectedCoinCollectorScreen === 'CleanCoinGame' && isCoinGameStarted) && (
         <View
           style={{
             position: 'absolute',
@@ -362,7 +357,7 @@ const HomeScreen = () => {
             backgroundColor: '#2CA1F6',
             width: dimensions.width,
             flexDirection: 'row',
-            justifyContent: 'space-evenly', // змінено на space-evenly
+            justifyContent: 'space-evenly',
             alignItems: 'center',
             alignSelf: 'center',
             paddingTop: dimensions.height * 0.004,
@@ -405,8 +400,6 @@ const HomeScreen = () => {
           ))}
         </View>
       )}
-
-
 
       <Modal
         animationType="slide"
@@ -458,7 +451,6 @@ const HomeScreen = () => {
                   Back
                 </Text>
               </TouchableOpacity>
-
 
               <TouchableOpacity
                 disabled={collectionImage === '' || !collectionImage || collectionTitle === ''}

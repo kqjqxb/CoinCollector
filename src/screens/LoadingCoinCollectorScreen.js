@@ -7,10 +7,8 @@ const LoadingCoinCollectorScreen = () => {
   const navigation = useNavigation();
   const [percentage, setPercentage] = useState(0);
 
-  // Create an animated value for the icon's opacity
   const animatedOpacity = useRef(new Animated.Value(1)).current;
 
-  // Start a looping animation for a pulsing effect
   useEffect(() => {
     Animated.loop(
       Animated.sequence([
@@ -28,7 +26,6 @@ const LoadingCoinCollectorScreen = () => {
     ).start();
   }, [animatedOpacity]);
 
-  // Increase percentage until 100, then navigate to Home
   useEffect(() => {
     if (percentage < 100) {
       const timer = setTimeout(() => {

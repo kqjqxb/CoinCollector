@@ -131,6 +131,7 @@ const SettingsScreen = ({ setSelectedCoinCollectorScreen, }) => {
 
       {coinCollectorLinkButtons.map((button) => (
         <TouchableOpacity
+          key={button.id}
           onPress={() => {
             Linking.openURL(button.coinButtonLink);
           }}

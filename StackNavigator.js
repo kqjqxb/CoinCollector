@@ -5,7 +5,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import HomeScreen from './src/screens/HomeScreen';
-import OnboardingScreen from './src/screens/OnboardingScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { UserProvider, UserContext } from './src/context/UserContext';
@@ -78,7 +77,6 @@ const AppNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={'LoadingCoinCollectorScreen'}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="LoadingCoinCollectorScreen" component={LoadingCoinCollectorScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>

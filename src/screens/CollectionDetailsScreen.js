@@ -7,7 +7,6 @@ import {
   Dimensions,
   Image,
   SafeAreaView,
-  Switch,
   Modal,
   TouchableWithoutFeedback,
   Keyboard,
@@ -19,7 +18,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from 'react-native-heroicons/solid'
 import * as ImagePicker from 'react-native-image-picker';
 
 const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
-const fontSFProTextRegular = 'SFProText-Regular';
 
 const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedCollection, coinCollection, setCoinCollection, setSelectedCollection }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
@@ -37,11 +35,9 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
 
   const saveCoin = async () => {
     try {
-      // Отримуємо існуючі колекції з AsyncStorage
       const storageData = await AsyncStorage.getItem('coinCollection');
       const collections = storageData ? JSON.parse(storageData) : [];
 
-      // Знаходимо індекс колекції за id обраної колекції
       const collectionIndex = collections.findIndex(
         (col) => col.id === selectedCollection.id
       );
@@ -50,7 +46,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
         return;
       }
 
-      // Формуємо новий об’єкт монети з усіма полями
       const newCoin = {
         id: Date.now(),
         id: selectedCollection.coins.length > 0 ? Math.max(...selectedCollection.coins.map(coin => coin.id)) + 1 : 1,
@@ -204,7 +199,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
           resizeMode='stretch'
         />
 
-
         <View
           style={{
             backgroundColor: '#2CA1F6',
@@ -357,7 +351,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
         )}
       </ScrollView>
 
-
       <View style={{
         width: dimensions.width,
         alignSelf: 'center',
@@ -440,8 +433,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
         </TouchableOpacity>
       </View>
 
-
-
       <Modal
         animationType="slide"
         transparent={true}
@@ -496,7 +487,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
                   Back
                 </Text>
               </TouchableOpacity>
-
 
               <TouchableOpacity
                 disabled={coinImage === '' || !coinImage || coinTitle === '' || yearOfIssue === ''
@@ -1082,7 +1072,6 @@ const CollectionDetailsScreen = ({ setSelectedCoinCollectorScreen, selectedColle
           </TouchableOpacity>
         </SafeAreaView>
       </Modal>
-
     </SafeAreaView>
   );
 };

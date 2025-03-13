@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
 import {
   View,
@@ -16,15 +15,12 @@ import encyclopediaData from '../components/encyclopediaData';
 import defectiveCoinsData from '../components/defectiveCoinsData';
 
 const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
-const fontSFProTextRegular = 'SFProText-Regular';
 
 const EncyclopediaScreen = ({ setSelectedCoinCollectorScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
-  const [modalVisible, setModalVisible] = useState(false);
   const [defectiveCoinModalVisivle, setDefectiveCoinModalVisivle] = useState(false);
   const [coinDetailsModalVisible, setCoinDetailsModalVisible] = useState(false);
   const [selectedCoin, setSelectedCoin] = useState(null);
-  const [isCoinDetailsVisible, setIsCoinDetailsVisible] = useState(false);
   const [isDefectiveCoinsVisible, setIsDefectiveCoinsVisible] = useState(false);
 
   const getDataByCategory = () => {

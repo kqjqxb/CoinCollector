@@ -14,7 +14,7 @@ const fontSFProDisplayRegular = 'SF-Pro-Display-Regular';
 const fontSFProTextRegular = 'SFProText-Regular';
 const fontSFProTextHeavy = 'SFProText-Heavy';
 
-const coinCollecorAppStoreLink = 'https://www.google.com/';
+const coinCollecorAppStoreLink = 'https://apps.apple.com/us/app/coin-collector-unique-coins/id6743238725';
 
 const coinCollectorLinkButtons = [
   {

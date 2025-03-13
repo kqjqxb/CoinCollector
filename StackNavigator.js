@@ -12,7 +12,7 @@ import { UserProvider, UserContext } from './src/context/UserContext';
 import { Provider, useDispatch } from 'react-redux';
 import store from './src/redux/store';
 import { loadUserData } from './src/redux/userSlice';
-import LoadingAleaScreen from './src/screens/LoadingAleaScreen';
+import LoadingCoinCollectorScreen from './src/screens/LoadingCoinCollectorScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,46 +33,38 @@ const AleaRiseStack = () => {
 
 const AppNavigator = () => {
   const dispatch = useDispatch();
-  const [isOnboardingAleaRiseVisible, setIsOnboardingAleaRiseVisible] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
 
-  const [initializingAleaRiseApp, setInitializingAleaRiseApp] = useState(true);
+  const [initializingCoinCollectorApp, setInitializingCoinCollectorApp] = useState(true);
 
   useEffect(() => {
     dispatch(loadUserData());
   }, [dispatch]);
 
   useEffect(() => {
-    const loadAleaRiseUser = async () => {
+    const loadCoinCollectorUser = async () => {
       try {
         const deviceId = await DeviceInfo.getUniqueId();
         const storageKey = `currentUser_${deviceId}`;
-        const storedAleaRiseUser = await AsyncStorage.getItem(storageKey);
-        const isAleaRiseOnboardWasVisible = await AsyncStorage.getItem('isAleaRiseOnboardWasVisible');
+        const storedCoinCollectorUser = await AsyncStorage.getItem(storageKey);
 
-        if (storedAleaRiseUser) {
-          setUser(JSON.parse(storedAleaRiseUser));
-          setIsOnboardingAleaRiseVisible(false);
-        } else if (isAleaRiseOnboardWasVisible) {
-          setIsOnboardingAleaRiseVisible(false);
-        } else {
-          setIsOnboardingAleaRiseVisible(true);
-          await AsyncStorage.setItem('isAleaRiseOnboardWasVisible', 'true');
-        }
+        if (storedCoinCollectorUser) {
+          setUser(JSON.parse(storedCoinCollectorUser));
+        } 
       } catch (error) {
-        console.error('Error loading of reginas user', error);
+        console.error('Error loading of coin collector user', error);
       } finally {
-        setInitializingAleaRiseApp(false);
+        setInitializingCoinCollectorApp(false);
       }
     };
-    loadAleaRiseUser();
+    loadCoinCollectorUser();
   }, [setUser]);
 
-  if (initializingAleaRiseApp) {
+  if (initializingCoinCollectorApp) {
     return (
       <View style={{
-        backgroundColor: '#050505',
+        backgroundColor: '#0068B7',
         alignItems: 'center',
         flex: 1,
         justifyContent: 'center',
@@ -84,10 +76,10 @@ const AppNavigator = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={isOnboardingAleaRiseVisible ? 'OnboardingScreen' : 'LoadingAleaScreen'}>
+      <Stack.Navigator initialRouteName={'LoadingCoinCollectorScreen'}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="LoadingAleaScreen" component={LoadingAleaScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="LoadingCoinCollectorScreen" component={LoadingCoinCollectorScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

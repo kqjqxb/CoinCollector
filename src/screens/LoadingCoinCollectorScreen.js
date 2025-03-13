@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { View, ImageBackground, Dimensions, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const LoadingAleaScreen = () => {
+const LoadingCoinCollectorScreen = () => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const navigation = useNavigation();
   const [percentage, setPercentage] = useState(0);
@@ -69,4 +69,4 @@ const LoadingAleaScreen = () => {
   );
 };
 
-export default LoadingAleaScreen;
+export default LoadingCoinCollectorScreen;

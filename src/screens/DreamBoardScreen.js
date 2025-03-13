@@ -19,7 +19,7 @@ const fontPontanoSansRegular = 'PontanoSans-Regular';
 
 const categoryButtons = ['💼 Career & Business', '💰 Finance & Wealth', '🏡 Housing & Comfort', '🚗 Transport & Tech', '🌍 Travel & Adventures', '💪 Health & Fitness', '📚 Education & Growth', '💖 Relationships & Family', '🎨 Creativity & Hobbies', '🎁 Wishes & Dreams']
 
-const DreamBoardScreen = ({ setSelectedCoinCollectorScreen, selectedCoinCollectorScreen }) => {
+const DreamBoardScreen = ({ setSelectedAleaScreen, selectedCoinCollectorScreen }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const [selectedDreamCategory, setSelectedDreamCategory] = useState('');
   const [dreamImage, setDreamImage] = useState('');

@@ -1,8 +1,8 @@
 import React from 'react';
-import AleaRiseStack from './StackNavigator';
+import CoinCollectorStack from './StackNavigator';
 
 function App() {
-  return <AleaRiseStack />;
+  return <CoinCollectorStack />;
 }
 
 export default App;

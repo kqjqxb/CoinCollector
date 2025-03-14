@@ -57,8 +57,7 @@ const EncyclopediaScreen = ({ setSelectedCoinCollectorScreen }) => {
             if (isDefectiveCoinsVisible) {
               setIsDefectiveCoinsVisible(false);
             } else {
-              // setSelectedCoinCollectorScreen('Home');
-              goCoinsHome();
+              setSelectedCoinCollectorScreen('Home');
             }
           }}
           style={{

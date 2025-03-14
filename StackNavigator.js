@@ -16,7 +16,7 @@ import LoadingCoinCollectorScreen from './src/screens/LoadingCoinCollectorScreen
 
 const Stack = createNativeStackNavigator();
 
-const AleaRiseStack = () => {
+const CoinCollectorStack = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Provider store={store}>
@@ -84,4 +84,4 @@ const AppNavigator = () => {
 };
 
 
-export default AleaRiseStack;
+export default CoinCollectorStack;
